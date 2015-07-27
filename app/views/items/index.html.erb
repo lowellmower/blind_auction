@@ -1,0 +1,10 @@
+<div class="container">
+  <h1 class="well well-lg">All the item for salez:</h1>
+  <% @items.each do |item| %>
+    <ul class="panel-body">
+    <% if valid_date(item)%>
+      <li><h4><%= link_to item.name, item_path(item.id) %></h4></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>

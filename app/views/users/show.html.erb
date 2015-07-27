@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="page-header">
+    <img class="img-circle pull-left" src="http://pipsum.com/435x310.jpg" style="height: 100px; width: 100px;">
+    <h1>Hey, <%= @user.username %>! <small>You've been busy!</small></h1>
+  </div>
+  <hr>
+</div>
+<!-- TODO: make each item a partial -->
+<div class="container">
+  <h3>Add an item for auction: <%= link_to 'New Item', new_item_path, class: "btn btn-success" %></h3>
+  <h3>Your Listed Items:</h3>
+  <% @items.each do |item| %>
+    <ul>
+      <li><%= link_to item.name, item_path(item.id)%></li>
+    </ul>
+  <% end %>
+
+  <h3>Bids Made: <%= @bids.count %></h3>
+
+  <h3>Your Bidded Items:</h3>
+  <% @bid_items.each do |bidded| %>
+    <ul>
+      <li><%= link_to bidded.name, item_path(bidded.id) %></li>
+    </ul>
+  <% end %>
+
+  <h3>Your Won Items:</h3>
+  <% @won_items.each do |won| %>
+    <% if @won_items.empty? %>
+      <h4>Nothing yet! Get Bidding!</h4>
+    <% else %>
+      <ul>
+        <li><%= link_to won.name, item_path(won.id) %> </li>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

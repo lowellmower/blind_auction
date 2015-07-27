@@ -1,0 +1,11 @@
+<%= form_for @item, method: 'put' do |f|%>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :cost %><br>
+  <%= f.number_field :cost %><br><br>
+  <%= f.label :description %><br>
+  <%= f.text_area :description %><br><br>
+  <%= f.label :end_date, "When does the auction end?" %><br>
+  <%= f.date_field :end_date %><br><br>
+  <%= f.submit 'Place for Auction!' %>
+<% end %>

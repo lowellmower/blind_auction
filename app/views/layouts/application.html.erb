@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BlindAuction</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if session[:user_id] && current_user %>
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <p class="navbar-text pull-right">Hello, <%= link_to @user.username, user_path(@user) %></p>
+      <p class="glyphicon glyphicon-user pull-right"></p>
+      <%= link_to 'Logout', logout_path, method: 'delete', class: "navbar-text" %>
+      <%= link_to 'Home', items_path, class: "navbar-text" %>
+    </nav>
+  </div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

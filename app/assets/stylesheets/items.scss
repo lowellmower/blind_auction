@@ -1,0 +1,36 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#auth-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+  height: 250px;
+  width: 250px;
+  display: none;
+}
+
+#lg{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+#sp{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.glyphicon{
+  margin-top: 10px;
+  font-size: 30px;
+}

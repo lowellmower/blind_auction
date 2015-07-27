@@ -1,0 +1,31 @@
+<% if !flash.empty? %>
+  <div class="alert alert-success" role="alert">
+    <%= flash.notice %>
+  </div>
+  <% flash.clear %>
+<% end %>
+
+<div class="container">
+  <h1>This item is a: <%= @item.name %></h1>
+  <div class="panel panel-default">
+    <div class="panel-heading">Description:</div>
+    <div class="panel-body">
+      <h3><%= @item.description %></h3>
+      <h3>Currently Has: <%= @item.bids.count %> bids!</h3>
+      <h4>Item cost: $<%= @item.cost %>.00</h4>
+      <h4>Auction Ends: <%= @item.end_date %></h4>
+    </div>
+  </div>
+
+  <% if @item.user_id != session[:user_id] %>
+    <h3>Wanna place a bid?</h3>
+    <%= form_for [@item, @bid] do |f| %>
+      <%= f.label :ammount, "What's your bid?" %><br>
+      <%= f.number_field :ammount %><br>
+      <%= f.submit "Place Bid!" %>
+    <% end %>
+  <% else %>
+  <%= link_to 'edit', edit_item_path %>
+  <%= link_to 'delete', item_path, method: 'delete' %>
+  <% end %>
+</div>
